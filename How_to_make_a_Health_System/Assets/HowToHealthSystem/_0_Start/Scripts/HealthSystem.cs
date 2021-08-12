@@ -1,6 +1,11 @@
-﻿
+﻿using System;
 public class HealthSystem
 {
+    /// <summary>
+    /// 血條觸發事件
+    /// </summary>
+    public event EventHandler OnHealthChanged;  
+
     private int health;
     private int healthMax;
     /// <summary>
@@ -20,6 +25,14 @@ public class HealthSystem
         return health;
     }
     /// <summary>
+    /// 獲取血量百分比
+    /// </summary>
+    /// <returns></returns>
+    public float GetHealthPercent()
+    {
+        return (float) health / healthMax;
+    }
+    /// <summary>
     /// 受到傷害
     /// </summary>
     /// <param name="damageAmount"></param>
@@ -27,6 +40,7 @@ public class HealthSystem
     {
         health -= damageAmount;
         if (health < 0) health = 0;//血量不得低於0
+        if(OnHealthChanged != null) OnHealthChanged(this,EventArgs.Empty);
     }
     /// <summary>
     /// 血量補給
@@ -36,5 +50,6 @@ public class HealthSystem
     {
         health += healAmount;
         if (health > healthMax) health = healthMax;//血量不得高於100
+        if (OnHealthChanged != null) OnHealthChanged(this, EventArgs.Empty);
     }
 }

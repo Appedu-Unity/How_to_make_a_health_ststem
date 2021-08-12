@@ -79,6 +79,7 @@
     <Compile Include="Assets\HowToHealthSystem\Stuff\Scripts\SpriteAnimator.cs" />
     <Compile Include="Assets\HowToHealthSystem\Stuff\Scripts\UVVectors.cs" />
     <Compile Include="Assets\HowToHealthSystem\_0_Start\Scripts\GameHandler.cs" />
+    <Compile Include="Assets\HowToHealthSystem\_0_Start\Scripts\HealthBar.cs" />
     <Compile Include="Assets\HowToHealthSystem\_0_Start\Scripts\HealthSystem.cs" />
     <Compile Include="Assets\HowToHealthSystem\_0_Start\Scripts\PlayerHandler.cs" />
     <Compile Include="Assets\HowToHealthSystem\_1_Final\Scripts\CameraFollow.cs" />

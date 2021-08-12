@@ -2,10 +2,19 @@
 using CodeMonkey;
 
 public class GameHandler : MonoBehaviour {
+
+    public Transform pfHealthBar;
     private void Start() {
         HealthSystem healthSystem = new HealthSystem(100);
 
-        Debug.Log("Health: " + healthSystem.GetHealth());
+        Transform healthBarTransform = Instantiate(pfHealthBar, new Vector3(0, 10), Quaternion.identity);
+        HealthBar healthBar = healthBarTransform.GetComponent<HealthBar>();
+        healthBar.Setup(healthSystem);
+
+        Debug.Log("Health: " + healthSystem.GetHealthPercent());
+        healthSystem.Damage(10);
+        Debug.Log("Health:" + healthSystem.GetHealthPercent());
+
         CMDebug.ButtonUI(new Vector2(100, 100), "damage", () =>
         {
             healthSystem.Damage(10);
