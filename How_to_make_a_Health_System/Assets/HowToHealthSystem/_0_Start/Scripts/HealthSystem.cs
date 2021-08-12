@@ -40,7 +40,7 @@ public class HealthSystem
     {
         health -= damageAmount;
         if (health < 0) health = 0;//血量不得低於0
-        if(OnHealthChanged != null) OnHealthChanged(this,EventArgs.Empty);
+        if(OnHealthChanged != null) OnHealthChanged(this,EventArgs.Empty); //EventArgs為儲存重要信息之使用
     }
     /// <summary>
     /// 血量補給
@@ -50,6 +50,6 @@ public class HealthSystem
     {
         health += healAmount;
         if (health > healthMax) health = healthMax;//血量不得高於100
-        if (OnHealthChanged != null) OnHealthChanged(this, EventArgs.Empty);
+        if (OnHealthChanged != null) OnHealthChanged(this, EventArgs.Empty); //EventArgs為儲存重要信息之使用
     }
 }
